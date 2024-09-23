@@ -151,12 +151,6 @@ class MainClass
 
 
 
-
-
-
-
-
-
             //int aaa = 10, bbb = 5, ccc = 7, ddd = 8;//&& ||
             //if (aaa < bbb && ++ccc <= ddd)//++ccc не выполнится ,т.к сокращенная схема
             //{
