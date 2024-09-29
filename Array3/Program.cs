@@ -8,7 +8,7 @@ class MainClass
         try
         {
             int N = 5;
-            int M = 5; 
+            int M = 5;
             // Можно объявить массив без инициализации
             int[,] arr3;
             // Но его нельзя использовать, пока он не создан с помощью оператора new
@@ -26,7 +26,7 @@ class MainClass
             {
                 for (int j = 0; j < M; j++)
                 {
-                    arr3[i,j] = rnd.Next(0, 101);
+                    arr3[i, j] = rnd.Next(0, 101);
                     Console.Write("{0,4}", arr3[i, j]);
                 }
                 Console.WriteLine();
@@ -38,35 +38,35 @@ class MainClass
             int direction = int.Parse(Console.ReadLine());
 
 
-            
+
             if (direction == 1)
             {
                 for (int i = 0; i < N; i++)
                 {
                     for (int j = 0; j < n; j++)
                     {
-                        int temp = arr3[i, 0]; 
+                        int temp = arr3[i, 0];
                         for (int k = 0; k < M - 1; k++)
                         {
                             arr3[i, k] = arr3[i, k + 1];
                         }
-                        arr3[i, M - 1] = temp; 
+                        arr3[i, M - 1] = temp;
                     }
                 }
             }
-         
+
             else if (direction == 2)
             {
                 for (int i = 0; i < N; i++)
                 {
                     for (int j = 0; j < n; j++)
                     {
-                        int temp = arr3[i, M - 1]; 
+                        int temp = arr3[i, M - 1];
                         for (int k = M - 1; k > 0; k--)
                         {
-                            arr3[i, k] = arr3[i, k - 1]; 
+                            arr3[i, k] = arr3[i, k - 1];
                         }
-                        arr3[i, 0] = temp; 
+                        arr3[i, 0] = temp;
                     }
                 }
             }
@@ -82,7 +82,7 @@ class MainClass
                 Console.WriteLine();
             }
         }
-        
+
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
