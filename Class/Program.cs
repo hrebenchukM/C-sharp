@@ -1,5 +1,6 @@
 ﻿using CSharp.Classes;
 using System;
+using System.Threading;
 
 namespace CSharp.Classes
 {
@@ -75,7 +76,7 @@ namespace CSharp.Classes
             }
         }
 
-        public  int nDaysInM(int year, int month)
+        private  int nDaysInM(int year, int month)
         {
             if (month < 1 || month > 12)
                 return 0; 
@@ -207,6 +208,55 @@ namespace CSharp.Classes
             }
         }
 
+        public static int operator -(Date date1, Date date2)
+        {
+            return date1.DaysDiff(date2);
+        }
+
+        public static Date operator +(Date date, int days)
+        {
+            Date dateNew = new Date(date.Day, date.Month, date.Year);
+            dateNew.DaysAdd(days);
+            return dateNew;
+        }
+
+
+        public static Date operator ++(Date date)
+        {
+            Date dateNew = new Date(date.Day, date.Month, date.Year);
+            dateNew.DaysAdd(1);
+            return dateNew;
+        }
+
+
+
+        public static Date operator --(Date date)
+        {
+            Date dateNew = new Date(date.Day, date.Month, date.Year);
+            dateNew.DaysAdd(-1);
+            return dateNew;
+        }
+        // Операторы отношения перегружаются парами 1) < > 2)== != 3)>= <=
+
+        public static bool operator >(Date date1, Date date2)
+        {
+            return date1.DaysDiff(date2) > 0;
+        }
+
+        public static bool operator <(Date date1, Date date2)
+        {
+            return date1.DaysDiff(date2) < 0;
+        }
+
+        public static bool operator ==(Date date1, Date date2)
+        {
+            return date1.Day == date2.Day && date1.Month == date2.Month && date1.Year == date2.Year;
+        }
+
+        public static bool operator !=(Date date1, Date date2)
+        {
+            return !(date1 == date2);
+        }
 
 
     }
@@ -224,13 +274,35 @@ class Client
         Console.WriteLine("Day of the Week:{0} ", date.Day_Of_Week());
 
       
-        Date date2 = new Date(10, 12, 2024); 
+        Date date2 = new Date(10, 10, 2024); 
         date2.PrintDate();
 
-        Console.WriteLine("Days differencs:{0} ", date.DaysDiff(date2));
+        Console.WriteLine("Days diff:{0} ", date.DaysDiff(date2));
 
 
-        date2.DaysAdd(30);
+        date2.DaysAdd(3);
         date2.PrintDate();
+
+
+        Date dateTest = date + 2;
+        dateTest.PrintDate();
+
+        int diff = date2 - date;
+        Console.WriteLine("Diff in days: {0}", diff);
+
+
+
+        Date incr= ++date;
+        incr.PrintDate();
+
+
+        Date decr = --date2;
+        decr.PrintDate();
+
+        Console.WriteLine("date > date2: {0}", date > date2);
+        Console.WriteLine("date < date2: {0}", date < date2);
+        Console.WriteLine("date == date2: {0}", date == date2);
+        Console.WriteLine("date != date2: {0}", date != date2);
+
     }
 }
