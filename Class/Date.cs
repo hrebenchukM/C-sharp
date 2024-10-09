@@ -28,20 +28,8 @@ namespace CSharp.Classes
             }
             set
             {
-                if (year < 0 || month < 1 || month > 12)
-                {
-                    day = 1;
-                }
-
-                else if (value > nDaysInM(month, year))
-                {
-                    day = nDaysInM(month, year);
-                }
-                else
-                {
-                    day = value;
-                }
-
+                Validator(value, month, year);
+                day = value;
             }
         }
 
@@ -53,20 +41,8 @@ namespace CSharp.Classes
             }
             set
             {
-                if (value < 1 || value > 12)
-                {
-                    month = 1;
-                }
-
-                else
-                {
-                    month = value;
-                }
-
-                if (day > nDaysInM(month, year))
-                {
-                    day = nDaysInM(month, year);
-                }
+                Validator(day, value, year);
+                month = value;
 
             }
         }
@@ -79,6 +55,7 @@ namespace CSharp.Classes
             }
             set
             {
+                Validator(day, month, value);
                 year = value;
             }
         }
@@ -141,6 +118,7 @@ namespace CSharp.Classes
         //конструктор с параметрами
         public Date(int d, int m, int y)
         {
+            Validator(d, m, y);
             year = y;
             month = m;
             day = d;
@@ -165,6 +143,7 @@ namespace CSharp.Classes
 
         public int DaysDiff(Date other)
         {
+       
             int tDays = 0;
             int yearDiff = other.Year - Year;
             tDays += yearDiff * 365 + (yearDiff / 4) - (yearDiff / 100) + (yearDiff / 400);
@@ -190,6 +169,9 @@ namespace CSharp.Classes
         }
         public void DaysAdd(int days)
         {
+            if (days < 0)
+                throw new ArgumentOutOfRangeException("Days to add must be > 0.");
+
             day += days;
 
             while (day > nDaysInM(year, month))
@@ -266,6 +248,18 @@ namespace CSharp.Classes
         public static bool operator !=(Date date1, Date date2)
         {
             return !(date1 == date2);
+        }
+
+
+
+        private void Validator(int d, int m, int y)
+        {
+            if (y < 0)
+                throw new ArgumentOutOfRangeException("Year can't be < 0.");
+            if (m < 1 || m > 12)
+                throw new ArgumentOutOfRangeException("Month must be from 1 to 12.");
+            if (d < 1 || d > nDaysInM(y, m))
+                throw new ArgumentOutOfRangeException("Day is not true for this month.");
         }
 
 
