@@ -84,7 +84,7 @@ class Client
 
                     case "6"://Записать в файл
                         Console.Write("Записать файл: ");
-                        group.Load("../../../Data/group.txt");
+                        group.Save("../../../Data/group.txt");
                         Console.WriteLine("сохранено.");
 
                         break;
@@ -92,7 +92,7 @@ class Client
                     case "7"://Прочитать из файла
                      
                         Console.Write("Прочитать файл: ");
-                        group.Save("../../../Data/group.txt");
+                        group.Load("../../../Data/group.txt");
                         Console.WriteLine("Загружено:");
                         break;
 
