@@ -251,7 +251,7 @@ namespace Inheritance
                     sw.WriteLine(student.Phone);
                     sw.WriteLine(student.Average);
                     sw.WriteLine(student.Number_of_group);
-                    sw.WriteLine();
+                    sw.WriteLine();//пустая строка разделитель
                 }
             }
             catch (Exception e)
@@ -272,23 +272,23 @@ namespace Inheritance
             StreamReader sr = new StreamReader(path);
             try
             {
-                string line;
+                string line;//текущая строка 
                 while ((line = sr.ReadLine()) != null)
                 {
 
                     Student student = new Student
                     {
-                        Name = line,
-                        Surname = sr.ReadLine(),
-                        Age = Convert.ToInt32(sr.ReadLine()),
-                        Phone = sr.ReadLine(),
-                        Average = Convert.ToDouble(sr.ReadLine()),
-                        Number_of_group = sr.ReadLine()
+                        Name = line,//Мария
+                        Surname = sr.ReadLine(),//Гребенчук
+                        Age = Convert.ToInt32(sr.ReadLine()),//19
+                        Phone = sr.ReadLine(),//380972860462
+                        Average = Convert.ToDouble(sr.ReadLine()),//9
+                        Number_of_group = sr.ReadLine()//P222
                     };
 
                   
                     students.Add(student);
-                    sr.ReadLine();
+                    sr.ReadLine();//пропуск пустой строки
                 }
 
             }
