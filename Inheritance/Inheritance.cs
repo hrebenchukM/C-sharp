@@ -240,7 +240,7 @@ namespace Inheritance
         //метод Save для сохранения данных в файл;
         public void Save(string path)
         {
-            StreamWriter sw = new StreamWriter(path,true );
+            StreamWriter sw = new StreamWriter(path,false );
             try
             {
                 foreach (Student student in students)
@@ -251,6 +251,7 @@ namespace Inheritance
                     sw.WriteLine(student.Phone);
                     sw.WriteLine(student.Average);
                     sw.WriteLine(student.Number_of_group);
+                    sw.WriteLine();
                 }
             }
             catch (Exception e)
@@ -271,13 +272,13 @@ namespace Inheritance
             StreamReader sr = new StreamReader(path);
             try
             {
-                String line;
+                string line;
                 while ((line = sr.ReadLine()) != null)
                 {
 
                     Student student = new Student
                     {
-                        Name = sr.ReadLine(),
+                        Name = line,
                         Surname = sr.ReadLine(),
                         Age = Convert.ToInt32(sr.ReadLine()),
                         Phone = sr.ReadLine(),
@@ -287,6 +288,7 @@ namespace Inheritance
 
                   
                     students.Add(student);
+                    sr.ReadLine();
                 }
 
             }
