@@ -1,4 +1,16 @@
 Triangle
+3
+4
+Rectangle
+0
+5
+5
+0
+Circle
+0
+0
+4
+Triangle
 10
 15
 Triangle
