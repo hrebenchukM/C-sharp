@@ -286,7 +286,11 @@ namespace Abstract_class
                         s = new Circle(0, 0, 0);
                         s.Load(sr);
                     }
-                    
+                    else
+                    {
+                        Console.WriteLine("Неопознанный обьект (НО - не НЛО)");
+                        continue;
+                    }
                     if (s != null)
                     {
                         Add(s); 
