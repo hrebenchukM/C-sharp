@@ -96,7 +96,10 @@ namespace StandartInterface
 
 
 
-
+    // Существует возможность «научить» класс сортироваться
+    // Для этого необходимо отнаследовать класс от интерфейса IComparable
+    // Существует возможность «научить» класс сортироваться по определённому критерию 
+    // Для этого необходимо отнаследовать класс от интерфейса IComparer
 
     class Student : Person , IComparable
     {
@@ -194,8 +197,11 @@ namespace StandartInterface
 
 
 
+    // IEnumerable предоставляет перечислитель, который поддерживает простой перебор элементов необобщенной коллекции
+    // IEnumerator поддерживает простой перебор по необобщенной коллекции
+    //ICloneable Клонирование объектов. Реализация глубокого копирования 
 
-    class Academy_Group: ICloneable ,IEnumerable, IEnumerator
+    class Academy_Group : ICloneable ,IEnumerable, IEnumerator
     {
         //реализует интерфейс ICloneable
         public object Clone()
