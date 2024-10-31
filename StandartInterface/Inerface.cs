@@ -185,7 +185,17 @@ namespace StandartInterface
     }
 
 
-    class Academy_Group: ICloneable
+
+
+
+
+
+
+
+
+
+
+    class Academy_Group: ICloneable ,IEnumerable, IEnumerator
     {
         //реализует интерфейс ICloneable
         public object Clone()
@@ -205,6 +215,64 @@ namespace StandartInterface
         //}
 
 
+
+
+
+        int curpos = -1;
+
+        //Итератор представляет метод, в котором используется ключевое слово yield для перебора по коллекции или массиву 
+        public IEnumerator GetEnumerator()
+        {
+            //////////////////1//////////////////////
+            Console.WriteLine("\nВыполняется метод GetEnumerator");
+            // возвращается ссылка на объект класса, реализующего перечислитель
+            return this;
+
+            /////////////////////2///////////////////////
+            //Console.WriteLine("\nВыполняется метод GetEnumerator");
+            //for (int i = 0; i < students.Count; i++)
+            //    yield return students[i];
+            //// При обращении к оператору yield return будет сохраняться текущее местоположение.
+            //// И когда foreach перейдет к следующей итерации для получения нового объекта, 
+            //// итератор начнет выполнение с этого местоположения.
+        }
+
+
+        // реализация перечислителя
+        #region enumerator
+
+        //Устанавливает перечислитель в его начальное положение, т. е. перед первым элементом коллекции
+        public void Reset()
+        {
+            Console.WriteLine("\nВыполняется метод Reset");
+            curpos = -1;
+        }
+        public object Current // Получает текущий элемент в коллекции
+        {
+            get
+            {
+                Console.WriteLine("\nВыполняется свойство Current");
+                return students[curpos];
+            }
+        }
+
+        // Перемещает перечислитель к следующему элементу коллекции
+        public bool MoveNext()
+        {
+            Console.WriteLine("\nВыполняется метод MoveNext");
+            if (curpos < students.Count - 1)
+            {
+                curpos++;
+                return true;
+            }
+            else
+            {
+                Reset();
+                return false;
+            }
+
+        }
+        #endregion enumerator
 
 
 
@@ -291,19 +359,22 @@ namespace StandartInterface
         //метод Sort для сортировки по заданному критерию; 
         public void Sort(IComparer icomparer)
         {
-            students.Sort(icomparer);
+        //    students.Sort(icomparer);
 
-            //// создаем клон группы
-            //var clone = Clone() as Academy_Group;
-            //// сортируем студентов во временной группе
-            //clone.students.Sort(icomparer);
+            // создаем клон группы
+            var clone = Clone() as Academy_Group;
+            // сортируем студентов во временной группе
+            clone.students.Sort(icomparer);
 
-            //// очищаем оригинал и добавляем студентов после сорт
-            //students.Clear();
-            //foreach (Student student in clone.students)
-            //{
-            //    students.Add(student);
-            //}
+            Console.WriteLine("Sorted cloned group:");
+            clone.Print();
+
+            // очищаем оригинал и добавляем студентов после сорт
+            students.Clear();
+            foreach (Student student in clone.students)
+            {
+                students.Add(student);
+            }
         }
 
 

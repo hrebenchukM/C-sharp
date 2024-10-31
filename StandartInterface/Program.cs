@@ -28,6 +28,7 @@ class Client
                 Console.WriteLine("6.Записать в файл");
                 Console.WriteLine("7. Прочитать из файла");
                 Console.WriteLine("8. Отсортировать студентов по среднему балу/номеру группы");
+                Console.WriteLine("9. Перебор коллекции студентов с помощью foreach");
                 Console.WriteLine("0.Выход");
                 Console.Write("Выберите пунктик: ");
 
@@ -118,6 +119,16 @@ class Client
                         group.Sort(icomparer); 
                         Console.WriteLine("Сортировка завершена.");
                         break;
+
+                    case "9": // перебор коллекции (объекта класса Academy_Group) с помощью оператора цикла foreach.
+                        Console.WriteLine("Список студентов:");
+                        foreach (Student temp in group)
+                        {
+                            temp.Print();
+                        }
+                        break;
+
+
 
                     case "0"://Выход
                         return;
