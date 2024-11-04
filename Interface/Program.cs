@@ -32,7 +32,7 @@ class Client
 
 
                 Console.WriteLine("\n1.Начать строительство дома");
-                Console.WriteLine("2.Показать текущее строительство дома ");
+                Console.WriteLine("2.Показать информацию о готовом доме ");
                 Console.WriteLine("0.Выход");
                 Console.Write("Выберите пунктик: ");
 
