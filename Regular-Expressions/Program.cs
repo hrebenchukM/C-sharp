@@ -54,7 +54,7 @@ namespace Regular_Expressions
             //| —  "или".
             //  [a-z]+ \.  - mail.
             //  [a-z]+ \.  - odesa.
-            // [a-z]{2,3} - от 2 до 3 маленьких букв (ua, com, net,ru и т.д.)
+            // [a-z]{2,3} - от 2 до 3 маленьких букв (ua, com, net,ru и т.д.) - Максиму сказали что домен любой главное 2-3 букв
 
             Regex regex2 = new Regex(pattern2, RegexOptions.IgnoreCase);//IgnoreCase спрашивал Аслан на случай пользователь введет с большой 
 
