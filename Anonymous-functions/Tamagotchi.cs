@@ -8,7 +8,7 @@ namespace Anonymous_functions
 {
     public delegate void StateHandler(string message);
 
-    class Tamagotchi
+    class Tamagotchi//Тамагочи(объект наблюдения)
     {
         private int health = 100;
         private int hunger = 0;
@@ -19,7 +19,13 @@ namespace Anonymous_functions
         private string curReq;
         private Random rnd = new Random();
 
-        public event StateHandler State;
+        //5 событий
+        public event StateHandler HealthState;
+        public event StateHandler HungerState;
+        public event StateHandler HappinessState;
+        public event StateHandler SleepState;
+        public event StateHandler IllnessState;
+
 
         public void Play()
         {
@@ -44,7 +50,7 @@ namespace Anonymous_functions
                 if (illness >= 3)
                 {
                     illness++;
-                    health -= 10;
+                    health = 0;
                     Console.WriteLine("Тамагочи заболел слишком сильно и умер. Плохой Вы друг!!!");
                     break; // Завершаем игру
                 }
@@ -66,33 +72,42 @@ namespace Anonymous_functions
                     case "покормить":
                         hunger = 0;
                         if (hunger > 100) hunger = 100;
+                        HungerState?.Invoke("Вы удовлетворили просьбу: " + curReq+"Уровень голода: " + hunger+ "%");
                         break;
                     case "погулять":
                         happiness = 100;
                         if (happiness > 100) happiness = 100;
+                        HappinessState?.Invoke("Вы удовлетворили просьбу: " + curReq + "Уровень счастья: " + happiness+ "%");
                         break;
                     case "усыпить":
                         sleep = 100;
+                        SleepState?.Invoke("Вы удовлетворили просьбу: " + curReq + "Уровень сна: " + sleep+ "%");
                         break;
                     case "полечить":
                         illness = 0;
                         health = 100;
                         if (health > 100) health = 100;
+                        HealthState?.Invoke("Вы удовлетворили просьбу: " + curReq + "Уровень здоровья: " + health+ "%");
+
                         break;
                     case "поиграть":
                         happiness = 100;
                         if (happiness > 100) happiness = 100;
+                        HappinessState?.Invoke("Вы удовлетворили просьбу: " + curReq + "Уровень счастья: " + happiness+ "%");
                         break;
                 }
 
-                State?.Invoke("Вы удовлетворили просьбу: " + curReq);
             }
             else
             {
+
                 illness++;
-                health -= 33;
+                health -= 34;
                 happiness -= 10;
-                State?.Invoke("Вы отказали в просьбе: " + curReq + " Ухудшение состояния...");
+
+                HealthState?.Invoke("Уровень здоровья: " + health + " % "+" Ухудшение здоровья...");
+                HappinessState?.Invoke("Уровень счастья: " + happiness + " % " + " Ухудшение счастья...");
+
             }
         }
 
