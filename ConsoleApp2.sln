@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StandartInterface", "Standa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{9629831E-B10D-4CDA-9819-59979E8E10AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regular Expressions_5", "Regular-Expressions\Regular Expressions_5.csproj", "{5D2E00FC-5D32-4AC5-9343-5F24F8CFEC1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Regular Expressions_5", "Regular-Expressions\Regular Expressions_5.csproj", "{5D2E00FC-5D32-4AC5-9343-5F24F8CFEC1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates+Events", "Delegates+Events\Delegates+Events.csproj", "{1C417723-5546-43B1-9F8E-7583595180BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegates+Events", "Delegates+Events\Delegates+Events.csproj", "{1C417723-5546-43B1-9F8E-7583595180BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anonymous-functions", "Anonymous-functions\Anonymous-functions.csproj", "{379AF5D4-5F7E-479D-93CD-ADB6FD191B99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{1C417723-5546-43B1-9F8E-7583595180BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C417723-5546-43B1-9F8E-7583595180BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C417723-5546-43B1-9F8E-7583595180BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379AF5D4-5F7E-479D-93CD-ADB6FD191B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379AF5D4-5F7E-479D-93CD-ADB6FD191B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379AF5D4-5F7E-479D-93CD-ADB6FD191B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379AF5D4-5F7E-479D-93CD-ADB6FD191B99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
