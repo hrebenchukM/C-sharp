@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ Grouping", "LINQ Group
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ Aggregate operations", "LINQ Aggregate operations\LINQ Aggregate operations.csproj", "{A9C1E5E6-5CCE-4CD4-A922-6F70F87E24EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance. Delegates. Events. Lambda", "Inheritance. Delegates. Events. Lambda\Inheritance. Delegates. Events. Lambda.csproj", "{42CCD7AF-FC13-45FC-BC8F-BE77AA0B44AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{A9C1E5E6-5CCE-4CD4-A922-6F70F87E24EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9C1E5E6-5CCE-4CD4-A922-6F70F87E24EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9C1E5E6-5CCE-4CD4-A922-6F70F87E24EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42CCD7AF-FC13-45FC-BC8F-BE77AA0B44AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42CCD7AF-FC13-45FC-BC8F-BE77AA0B44AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42CCD7AF-FC13-45FC-BC8F-BE77AA0B44AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42CCD7AF-FC13-45FC-BC8F-BE77AA0B44AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
