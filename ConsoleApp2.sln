@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance. Delegates. Eve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{A5D71A10-7806-48C4-8F8C-8F8556319CD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchFiles1", "SearchFiles1\SearchFiles1.csproj", "{5D42C6D6-503C-4B1E-A21B-3631F17DA41C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{A5D71A10-7806-48C4-8F8C-8F8556319CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D71A10-7806-48C4-8F8C-8F8556319CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D71A10-7806-48C4-8F8C-8F8556319CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D42C6D6-503C-4B1E-A21B-3631F17DA41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D42C6D6-503C-4B1E-A21B-3631F17DA41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D42C6D6-503C-4B1E-A21B-3631F17DA41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D42C6D6-503C-4B1E-A21B-3631F17DA41C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
