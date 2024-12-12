@@ -79,20 +79,28 @@ namespace CSharpApplication.SearchInFiles
             // Создание объекта регулярного выражения
             // на основе текста
             //Regex regText = Text.Length == 0 ? null : new Regex(Text, RegexOptions.IgnoreCase);
+            StreamWriter sw = null;
             try
             {
+                sw = new StreamWriter("../../../Data/group.txt", false);
+
                 // Вызываем функцию поиска
-                ulong Count = FindFilesByDate(start, end, di, regMask);
+                ulong Count = FindFilesByDate(start, end, di, regMask, sw);
                 Console.WriteLine("Всего обработано файлов: {0}.", Count);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-        }
+            finally
+            {
+                sw.Close();
+               
+            }
+        }   
 
         // Функция поиска
-        static ulong FindFilesByDate(DateTime start, DateTime end, DirectoryInfo di, Regex regMask)
+        static ulong FindFilesByDate(DateTime start, DateTime end, DirectoryInfo di, Regex regMask, StreamWriter sw)
         {
             // Поток для чтения из файла
             //StreamReader sr = null;
@@ -122,8 +130,11 @@ namespace CSharpApplication.SearchInFiles
                 {
                     // Увеличиваем счетчик
                     ++CountOfMatchFiles;
-                    Console.WriteLine("File " + f.Name);
-                    Console.WriteLine("Файл: {0}, Дата последней модификации: {1}", f.Name, f.LastWriteTime);
+                    string res = "File: " + f.Name + " Дата последней модификации: " + f.LastWriteTime;
+                    Console.WriteLine(res);
+                    sw.WriteLine(res);
+
+
 
                     //if (regText != null)
                     //{
@@ -157,7 +168,7 @@ namespace CSharpApplication.SearchInFiles
             // Для каждого из них вызываем (рекурсивно)
             // эту же функцию поиска
             foreach (DirectoryInfo diSubDir in diSub)
-                CountOfMatchFiles += FindFilesByDate(start,end, diSubDir, regMask);
+                CountOfMatchFiles += FindFilesByDate(start, end, diSubDir, regMask, sw);
 
             // Возврат количества обработанных файлов
             return CountOfMatchFiles;
