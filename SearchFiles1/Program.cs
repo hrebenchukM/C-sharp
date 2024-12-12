@@ -24,22 +24,13 @@ namespace CSharpApplication.SearchInFiles
 
             Console.Write("Введите начальную дату (yyyy-mm-dd): ");
             DateTime start;
-            if (!DateTime.TryParse(Console.ReadLine(), out start))
-            {
-                Console.WriteLine("Некорректная дата!");
-                return;
-            }
+            start = DateTime.Parse(Console.ReadLine());
 
 
 
             Console.Write("Введите конечную дату (yyyy-mm-dd): ");
             DateTime end;
-
-            if (!DateTime.TryParse(Console.ReadLine(), out end))
-            {
-                Console.WriteLine("Некорректная дата!");
-                return;
-            }
+            end = DateTime.Parse(Console.ReadLine());
 
 
             //Console.Write("Введите текст для поиска в файлах: ");
